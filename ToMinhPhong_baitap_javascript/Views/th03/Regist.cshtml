@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "regist";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký</title>
+</head>
+<body>
+    <h1>ĐĂNG KÝ THÀNH VIÊN</h1>
+
+    <form action="https://www.google.com/" method="get">
+        <p>
+            Họ và tên:
+            <input type="text" name="fullname" required>
+        </p>
+
+        <p>
+            Tên đăng nhập:
+            <input type="text" name="username" required>
+        </p>
+
+        <p>
+            Mật khẩu:
+            <input type="password" name="password" required>
+        </p>
+
+        <p>
+            Email:
+            <input type="email" name="email" required>
+        </p>
+
+        <p>
+            Ngày sinh:
+            <input type="date" name="birthday">
+        </p>
+
+        <p>Giới tính:</p>
+        <label>
+            <input type="radio" name="gender" value="Nam"> Nam
+        </label>
+
+        <label>
+            <input type="radio" name="gender" value="Nu"> Nữ
+        </label>
+
+        <p>Địa chỉ:</p>
+        <textarea name="address" rows="4" cols="30"></textarea>
+
+        <p>
+            <button type="submit">Gửi dữ liệu về máy chủ</button>
+        </p>
+    </form>
+
+    <p><a href="/Th03/Home">Trang chủ</a></p>
+</body>
+

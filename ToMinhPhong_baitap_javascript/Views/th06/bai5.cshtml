@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "bai5";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5 - Phương trình bậc hai</title>
+</head>
+
+<body>
+    <h2>GIẢI PHƯƠNG TRÌNH BẬC HAI</h2>
+
+    <p>Nhập a: <input type="number" id="a"></p>
+    <p>Nhập b: <input type="number" id="b"></p>
+    <p>Nhập c: <input type="number" id="c"></p>
+
+    <button onclick="GiaiPT()">Giải phương trình</button>
+
+    <p id="ketqua"></p>
+
+    <script>function GiaiPT() {
+            var a = Number(document.getElementById("a").value);
+            var b = Number(document.getElementById("b").value);
+            var c = Number(document.getElementById("c").value);
+            var kq = document.getElementById("ketqua");
+
+            if (a === 0) {
+                if (b === 0) {
+                    if (c === 0) {
+                        kq.innerHTML = "Phương trình vô số nghiệm.";
+                    } else {
+                        kq.innerHTML = "Phương trình vô nghiệm.";
+                    }
+                } else {
+                    kq.innerHTML = "Phương trình có nghiệm x = " + (-c / b);
+                }
+                return;
+            }
+
+            var delta = b * b - 4 * a * c;
+
+            if (delta < 0) {
+                kq.innerHTML = "Phương trình vô nghiệm thực.";
+            } else if (delta === 0) {
+                var x = -b / (2 * a);
+                kq.innerHTML = "Phương trình có nghiệm kép x = " + x;
+            } else {
+                var x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                var x2 = (-b - Math.sqrt(delta)) / (2 * a);
+
+                kq.innerHTML = "x1 = " + x1 + "<br>x2 = " + x2;
+            }
+        }</script>
+</body>
+

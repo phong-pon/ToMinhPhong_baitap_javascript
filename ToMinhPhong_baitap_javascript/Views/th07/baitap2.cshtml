@@ -1,0 +1,157 @@
+﻿
+@{
+    ViewBag.Title = "baitap2";
+}
+@{
+    Layout = null;
+}
+
+<head>
+    <meta charset="UTF-8">
+    <title>TO-DO LIST</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f1f1;
+        }
+
+        .container {
+            width: 500px;
+            margin: 80px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px #ccc;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .nhap {
+            display: flex;
+            gap: 8px;
+        }
+
+        #congviec {
+            flex: 1;
+            min-width: 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nut-them {
+            background: #2196F3;
+            color: white;
+        }
+
+        ul {
+            padding: 0;
+            margin-bottom: 0;
+            list-style: none;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 10px;
+            margin-top: 8px;
+            background: #eee;
+            overflow-wrap: anywhere;
+        }
+
+            li span {
+                flex: 1;
+                cursor: pointer;
+            }
+
+            li.hoanthanh span {
+                text-decoration: line-through;
+                color: gray;
+            }
+
+        .nut-xoa {
+            background: #f44336;
+            color: white;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>TO-DO LIST</h2>
+
+        <div class="nhap">
+            <input type="text" id="congviec"
+                   placeholder="Nhập công việc...">
+
+            <button class="nut-them" onclick="ThemCongViec()">
+                Thêm
+            </button>
+        </div>
+
+        <ul id="danhsach"></ul>
+    </div>
+
+    <script>
+        function ThemCongViec() {
+            var input = document.getElementById("congviec");
+            var noiDung = input.value.trim();
+
+            if (noiDung === "") {
+                alert("Vui lòng nhập công việc!");
+                return;
+            }
+
+            var li = document.createElement("li");
+            var span = document.createElement("span");
+
+            span.textContent = noiDung;
+
+            span.onclick = function () {
+                li.classList.toggle("hoanthanh");
+            };
+
+            var nutXoa = document.createElement("button");
+            nutXoa.textContent = "Xóa";
+            nutXoa.className = "nut-xoa";
+
+            nutXoa.onclick = function () {
+                li.remove();
+            };
+
+            li.appendChild(span);
+            li.appendChild(nutXoa);
+
+            document.getElementById("danhsach").appendChild(li);
+
+            input.value = "";
+            input.focus();
+        }
+
+        document.getElementById("congviec").addEventListener(
+            "keydown", function (event) {
+                if (event.key === "Enter") {
+                    ThemCongViec();
+                }
+            }
+        );
+    </script>
+</body>

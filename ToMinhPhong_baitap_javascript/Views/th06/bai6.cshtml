@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "bai6";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6 - Slideshow ảnh</title>
+
+    <style>
+        body {
+            text-align: center;
+        }
+
+        img {
+            width: 500px;
+            height: 300px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>SLIDESHOW ẢNH</h2>
+
+    <img id="hinh" src="https://images.unsplash.com/photo-1604999333679-b86d54738315?q=80&w=1025&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ảnh trình chiếu">
+
+    <br><br>
+
+    <button onclick="AnhTruoc()">Ảnh trước</button>
+    <button onclick="AnhTiep()">Ảnh tiếp theo</button>
+
+    <script>var dsAnh = [
+            "https://images.unsplash.com/photo-1604999333679-b86d54738315?q=80&w=1025&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1431274172761-fca41d930114?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        ];
+
+        var viTri = 0;
+
+        function HienThiAnh() {
+            document.getElementById("hinh").src = dsAnh[viTri];
+        }
+
+        function AnhTiep() {
+            viTri++;
+
+            if (viTri >= dsAnh.length) {
+                viTri = 0;
+            }
+
+            HienThiAnh();
+        }
+
+        function AnhTruoc() {
+            viTri--;
+
+            if (viTri < 0) {
+                viTri = dsAnh.length - 1;
+            }
+
+            HienThiAnh();
+        }</script>
+</body>
+

@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "baitap1";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Đồng hồ kỹ thuật số</title>
+</head>
+
+<body>
+    <h2>ĐỒNG HỒ KỸ THUẬT SỐ</h2>
+
+    <h1 id="dongho">00:00:00</h1>
+
+    <script>
+        function CapNhatDongHo() {
+            var now = new Date();
+
+            var gio = String(now.getHours()).padStart(2, "0");
+            var phut = String(now.getMinutes()).padStart(2, "0");
+            var giay = String(now.getSeconds()).padStart(2, "0");
+
+            document.getElementById("dongho").innerHTML =
+                gio + ":" + phut + ":" + giay;
+        }
+
+        CapNhatDongHo();
+        setInterval(CapNhatDongHo, 1000);
+    </script>
+</body>

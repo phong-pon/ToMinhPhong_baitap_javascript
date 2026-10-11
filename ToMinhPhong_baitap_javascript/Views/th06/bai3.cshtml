@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "bai3";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3 - Thay đổi trang</title>
+</head>
+
+<body>
+    <h2>THAY ĐỔI GIAO DIỆN TRANG WEB</h2>
+
+    <p>
+        Màu nền:
+        <input type="text" id="MauNen" value="yellow">
+    </p>
+
+    <p>
+        Màu chữ:
+        <input type="text" id="MauChu" value="blue">
+    </p>
+
+    <p>
+        Tiêu đề:
+        <input type="text" id="TieuDe" value="Trang web của tôi">
+    </p>
+
+    <p>
+        Trạng thái:
+        <input type="text" id="TrangThai" value="Xin chào!">
+    </p>
+
+    <button id="ThayDoi" onclick="ThayDoiTrang()">
+        Thay đổi
+    </button>
+
+    <script>function ThayDoiTrang() {
+            document.body.style.backgroundColor =
+                document.getElementById("MauNen").value;
+
+            document.body.style.color =
+                document.getElementById("MauChu").value;
+
+            document.title =
+                document.getElementById("TieuDe").value;
+
+            window.status =
+                document.getElementById("TrangThai").value;
+        }</script>
+</body>
+

@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "bai2";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2 - Đổi màu DIV</title>
+
+    <style>
+        #bai2 {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+
+            #bai2 h2 {
+                margin-bottom: 20px;
+                color: black;
+            }
+
+            #bai2 .o-mau {
+                width: 200px;
+                height: 40px;
+                border: 1px solid black;
+                margin: 6px auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-sizing: border-box;
+                color: black;
+                background-color: white;
+            }
+
+            #bai2 button {
+                margin-top: 15px;
+                padding: 10px 16px;
+                cursor: pointer;
+            }
+    </style>
+</head>
+
+<body>
+    <div id="bai2">
+        <h2>ĐỔI MÀU 10 THẺ DIV</h2>
+
+        <div class="o-mau">DIV 1</div>
+        <div class="o-mau">DIV 2</div>
+        <div class="o-mau">DIV 3</div>
+        <div class="o-mau">DIV 4</div>
+        <div class="o-mau">DIV 5</div>
+        <div class="o-mau">DIV 6</div>
+        <div class="o-mau">DIV 7</div>
+        <div class="o-mau">DIV 8</div>
+        <div class="o-mau">DIV 9</div>
+        <div class="o-mau">DIV 10</div>
+
+        <button type="button" onclick="DoiMau()">Đổi màu</button>
+    </div>
+
+    <script>
+        function DoiMau() {
+            var dsDiv = document.querySelectorAll("#bai2 .o-mau");
+
+            for (var i = 0; i < dsDiv.length; i++) {
+                if ((i + 1) % 2 == 0) {
+                    dsDiv[i].style.backgroundColor = "red";
+                } else {
+                    dsDiv[i].style.backgroundColor = "blue";
+                }
+            }
+        }
+    </script>
+</body>
